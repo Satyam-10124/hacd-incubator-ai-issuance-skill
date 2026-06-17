@@ -1,0 +1,94 @@
+name: HACD Incubator Cohort 2 Application
+about: Apply to issue a HACD Stack Asset through HACD Labs Incubator Cohort 2
+title: "[Incubator Application]: "
+labels: ["incubator", "application", "cohort-2"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for applying to HACD Labs Incubator Cohort 2.
+
+        Do not share private keys, seed phrases, wallet passwords, or exchange login information.
+
+  - type: input
+    id: project_name
+    attributes:
+      label: Project name
+      placeholder: Example: HACD Agent Identity Demo
+    validations:
+      required: true
+
+  - type: input
+    id: ticker
+    attributes:
+      label: Ticker / asset symbol
+      placeholder: Example: AID
+    validations:
+      required: false
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - meme
+        - AI agent
+        - art
+        - RWA
+        - stable asset
+        - game
+        - community
+        - utility
+        - other
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: One-sentence description
+      placeholder: What is this project?
+    validations:
+      required: true
+
+  - type: textarea
+    id: why_hacd
+    attributes:
+      label: Why HACD?
+      description: Explain why this asset should be issued through HACD Stack instead of a normal token contract.
+    validations:
+      required: true
+
+  - type: textarea
+    id: asset_design
+    attributes:
+      label: Proposed asset design
+      description: Include asset type, total supply, HACD lots, units per HACD, and stack cost if known.
+    validations:
+      required: true
+
+  - type: textarea
+    id: utility
+    attributes:
+      label: Utility or holder access
+      description: What can holders do at launch? What is planned later?
+    validations:
+      required: false
+
+  - type: textarea
+    id: links
+    attributes:
+      label: Links
+      description: Website, X, GitHub, docs, community links.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Confirmation
+      options:
+        - label: I understand that HACD Labs review does not guarantee approval, listing, liquidity, price, or investment outcome.
+          required: true
+        - label: I have not included any private keys, seed phrases, wallet passwords, or custody credentials.
+          required: true

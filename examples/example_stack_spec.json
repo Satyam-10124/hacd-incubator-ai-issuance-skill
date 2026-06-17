@@ -1,0 +1,53 @@
+{
+  "schema_version": "0.1.0",
+  "project": {
+    "name": "HACD Agent Identity Demo",
+    "ticker": "AID",
+    "category": "AI agent identity",
+    "description": "A demo Stack Asset showing how an AI agent can use HACD as a PoW-backed identity container.",
+    "website": "",
+    "x": "",
+    "contact": ""
+  },
+  "asset": {
+    "type": "HYBRID",
+    "total_supply": 16777216,
+    "decimals": 0,
+    "unit_name": "AID",
+    "utility_summary": "Each Stack lot represents an AI identity asset state formed inside one HACD."
+  },
+  "stack": {
+    "total_hacd_lots": 256,
+    "hacd_per_lot": 1,
+    "units_per_hacd_lot": 65536,
+    "stack_cost_hac_per_hacd": 88,
+    "network_fee_required": true,
+    "designated_address_required": false,
+    "designated_address": "",
+    "first_phase_hacd_lots": 0,
+    "public_phase_hacd_lots": 256,
+    "removal_effect": "burn"
+  },
+  "launch": {
+    "target_date_utc": "2026-06-01T12:00:00Z",
+    "launchpad_url": "",
+    "phase_model": "public",
+    "min_hacd_per_participant": 1,
+    "max_hacd_per_participant": null,
+    "status": "draft"
+  },
+  "copy": {
+    "headline": "AI identity, formed through HACD.",
+    "subheadline": "A demo Stack Asset exploring PoW-backed identity containers for AI agents.",
+    "short_description": "AID is a HACD Stack Asset demo for AI agent identity and state formation.",
+    "risk_disclosure": "This is a draft demo structure. No price, liquidity, listing, or return is guaranteed."
+  },
+  "review": {
+    "issuer_confirmed": false,
+    "hacd_labs_reviewed": false,
+    "legal_review_required": true,
+    "notes": [
+      "Demo only. Final launch parameters require HACD Labs review."
+    ]
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "schema_version": "0.1.0",
+  "project": {
+    "name": "",
+    "ticker": "",
+    "category": "",
+    "description": "",
+    "website": "",
+    "x": "",
+    "contact": ""
+  },
+  "asset": {
+    "type": "FT | NFT | SFT | HYBRID",
+    "total_supply": null,
+    "decimals": null,
+    "unit_name": "",
+    "utility_summary": ""
+  },
+  "stack": {
+    "total_hacd_lots": null,
+    "hacd_per_lot": 1,
+    "units_per_hacd_lot": null,
+    "stack_cost_hac_per_hacd": null,
+    "network_fee_required": true,
+    "designated_address_required": false,
+    "designated_address": "",
+    "first_phase_hacd_lots": null,
+    "public_phase_hacd_lots": null,
+    "removal_effect": "burn | disable | no_effect | unknown"
+  },
+  "launch": {
+    "target_date_utc": "",
+    "launchpad_url": "",
+    "phase_model": "public | allowlist | designated_first | custom",
+    "min_hacd_per_participant": 1,
+    "max_hacd_per_participant": null,
+    "status": "draft | review | approved | live | completed"
+  },
+  "copy": {
+    "headline": "",
+    "subheadline": "",
+    "short_description": "",
+    "risk_disclosure": ""
+  },
+  "review": {
+    "issuer_confirmed": false,
+    "hacd_labs_reviewed": false,
+    "legal_review_required": true,
+    "notes": []
+  }
+}
