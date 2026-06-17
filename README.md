@@ -32,7 +32,7 @@ Two complete working packages are included in this repo. Both pass the validator
 | Project | Ticker | Type | Lots | Supply | Stack Cost | Folder |
 |---------|--------|------|------|--------|------------|--------|
 | StackFire | SFR | FT | 100 | 1,000,000 | 50 HAC | `examples/example_community_token/` |
-| HacashBuilders | BUILD | FT + NFT | 500 | 10,000,000 | 50 HAC | `hacashbuilders/` |
+| HacashBuilders | BUILD | HYBRID | 500 | 10,000,000 | 50 HAC | `hacashbuilders/` |
 
 These are not mockups. Each folder contains all 8 required documents. Run the validator on either one:
 
@@ -100,11 +100,12 @@ The ACP agent system prompt at `prompts/acp_agent_system_prompt.md` contains ful
 
 ---
 
-## Prompts reference — 12 prompts total
+## Prompts reference — 13 prompts total
 
 | Prompt | What it does |
 |--------|-------------|
 | `acp_agent_system_prompt.md` | Full ACP / Claude Code agent system prompt with live Hacash ecosystem knowledge |
+| `web_research.md` | **Research Mode** — live web search with source citations and VERIFIED/REPORTED/ASSUMPTION tagging |
 | `google_form_to_intake.md` | Expands 9 Google Form answers into the full 40-field intake form |
 | `project_scorer.md` | Scores any submission 1–10 across 5 weighted dimensions |
 | `roast_mode.md` | Brutal pre-submission review — finds every blocker and warning |
@@ -117,6 +118,30 @@ The ACP agent system prompt at `prompts/acp_agent_system_prompt.md` contains ful
 | `launchpad_page_copy.md` | Standalone Launchpad page copy generator |
 | `x_announcement.md` | Standalone X announcement drafts |
 
+## Key reference docs
+
+| File | What it is |
+|------|-----------|
+| `ECOSYSTEM.md` | **Single source of truth** for every Hacash fact, link, benchmark, and campaign number. Change facts here first. |
+| `LAUNCH_WALKTHROUGH.md` | Step-by-step on-chain guide: wallet → get HAC → get HACD → submit → Stack → verify |
+| `schema/launch_spec.schema.json` | JSON Schema for `launch_spec.json` (editor + CI validation) |
+
+## Validator — now does more than math
+
+`scripts/validate_launch_spec.py` checks structure, enums, the supply equation, the phase-lot
+sum, **cross-document consistency** (numbers in the `.md` files must match the spec), and runs a
+**negation-aware copy-safety linter** that flags unsafe promo language without false-flagging
+risk disclosures.
+
+```bash
+python3 scripts/validate_launch_spec.py your_project/launch_spec.json            # draft check
+python3 scripts/validate_launch_spec.py your_project/launch_spec.json --strict   # final / CI check
+python3 scripts/validate_launch_spec.py your_project/launch_spec.json --no-docs  # JSON only
+```
+
+Every `launch_spec.json` in the repo is validated automatically by GitHub Actions on push and PR
+(`.github/workflows/validate.yml`).
+
 ---
 
 ## Repo structure
@@ -124,18 +149,24 @@ The ACP agent system prompt at `prompts/acp_agent_system_prompt.md` contains ful
 ```txt
 hacd-incubator-ai-issuance-skill/
 ├── README.md
+├── ECOSYSTEM.md             ← single source of truth: facts, links, benchmarks, campaign
 ├── CAMPAIGN.md              ← campaign rules, reward pool, timeline
-├── QUICKSTART.md            ← 10-minute builder guide
+├── QUICKSTART.md            ← 10-minute document-generation guide
+├── LAUNCH_WALKTHROUGH.md    ← on-chain guide: wallet → HAC → HACD → Stack → verify
 ├── SKILL.md                 ← core AI operating instructions
-├── prompts/                 ← 12 prompts (see table above)
+├── LICENSE                  ← MIT
+├── prompts/                 ← 13 prompts incl. web_research.md (see table above)
 ├── templates/               ← blank document templates
+├── schema/
+│   └── launch_spec.schema.json   ← JSON Schema for launch_spec.json
 ├── examples/
 │   ├── example_community_token/   ← StackFire (SFR) — FT reference
 │   └── example_stack_spec.json
-├── hacashbuilders/          ← HacashBuilders (BUILD) — FT+NFT reference
+├── hacashbuilders/          ← HacashBuilders (BUILD) — HYBRID reference
 ├── scripts/
-│   └── validate_launch_spec.py
+│   └── validate_launch_spec.py    ← structure + math + cross-doc + copy-safety linter
 └── .github/
+    └── workflows/validate.yml     ← CI: validates every spec on push/PR
 ```
 
 ---
@@ -172,4 +203,4 @@ hacd-incubator-ai-issuance-skill/
 
 ## License
 
-To be decided by HACD Labs.
+MIT — see `LICENSE`. Fork it, adapt it, build with it.
