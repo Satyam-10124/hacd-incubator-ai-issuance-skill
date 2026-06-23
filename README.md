@@ -133,10 +133,36 @@ hacd-incubator-ai-issuance-skill/
 │   ├── example_community_token/   ← StackFire (SFR) — FT reference
 │   └── example_stack_spec.json
 ├── hacashbuilders/          ← HacashBuilders (BUILD) — FT+NFT reference
+├── lovable-prompt-builder/  ← companion skill: idea → executive Lovable demo prompt
+│   ├── SKILL.md
+│   ├── prompts/             ← idea_board, pow_fit_check, sprint_plan
+│   ├── templates/           ← lovable_prompt_template
+│   └── examples/proofpress/ ← worked example (PRSS)
 ├── scripts/
 │   └── validate_launch_spec.py
 └── .github/
 ```
+
+---
+
+## Companion skill — Lovable Prompt Builder
+
+The issuance skill produces your launch *documents*. The companion
+[`lovable-prompt-builder/`](lovable-prompt-builder/) skill produces your demo
+*app*: it turns the same idea into an executive-grade
+[Lovable](https://lovable.dev) build prompt you paste into Lovable (or hand to
+Claude) to ship a working demo a reviewer can watch run in under a minute.
+
+```txt
+Project idea ─▶ lovable-prompt-builder ─▶ executive Lovable prompt ─▶ working demo app
+                                                                   └─▶ pairs with the 8-doc issuance package
+```
+
+It ships the full Cohort 2 idea board (20 vetted Stack Asset concepts), a
+PoW-fit check, a sprint plan keyed to `CAMPAIGN.md`, the fill-in prompt scaffold,
+and a complete worked example (ProofPress). Load
+[`lovable-prompt-builder/SKILL.md`](lovable-prompt-builder/SKILL.md) the same way
+you load the root `SKILL.md`, then give it your idea or an idea-board ticker.
 
 ---
 
