@@ -61,7 +61,29 @@ See `CAMPAIGN.md` for full rules, judging criteria, and submission format.
 
 ---
 
-## Fast start — 10 minutes
+## Fastest start — one prompt (`BUILD.md`)
+
+New here? Don't read 13 prompts. Do this:
+
+1. **Load the skill.** Open claude.ai or chatgpt.com and paste `SKILL.md` as your
+   first message. (In Claude Code / claude.ai with skills, just invoke the
+   `hacd-issuance` skill — no paste.)
+2. **Scaffold the folder** so you never start from a blank page and the supply math
+   is correct before you write a word:
+   ```bash
+   python3 scripts/new_project.py --name "Your Project" --ticker TKR \
+       --type FT --lots 100 --units 10000 --cost 50
+   ```
+3. **Run the one-shot prompt** in [`BUILD.md`](BUILD.md): fill the project block, paste,
+   and the AI returns all 8 documents, self-reviewed, in a single turn.
+4. **Validate:**
+   ```bash
+   python3 scripts/validate_launch_spec.py project_tkr/launch_spec.json --strict
+   ```
+
+That's the whole loop. The step-by-step version below still works if you prefer it.
+
+## Step-by-step start — 10 minutes
 
 Full guide in `QUICKSTART.md`. Short version:
 
@@ -151,9 +173,10 @@ hacd-incubator-ai-issuance-skill/
 ├── README.md
 ├── ECOSYSTEM.md             ← single source of truth: facts, links, benchmarks, campaign
 ├── CAMPAIGN.md              ← campaign rules, reward pool, timeline
-├── QUICKSTART.md            ← 10-minute document-generation guide
+├── BUILD.md                 ← one-shot mega-prompt: idea → 8 docs, self-reviewed
+├── QUICKSTART.md            ← 10-minute step-by-step document-generation guide
 ├── LAUNCH_WALKTHROUGH.md    ← on-chain guide: wallet → HAC → HACD → Stack → verify
-├── SKILL.md                 ← core AI operating instructions
+├── SKILL.md                 ← core AI operating instructions (invocable skill w/ frontmatter)
 ├── LICENSE                  ← MIT
 ├── prompts/                 ← 13 prompts incl. web_research.md (see table above)
 ├── templates/               ← blank document templates
@@ -170,6 +193,7 @@ hacd-incubator-ai-issuance-skill/
 │   └── examples/proofpress/ ← worked example (PRSS)
 ├── hacashbuilders/          ← HacashBuilders (BUILD) — HYBRID reference
 ├── scripts/
+│   ├── new_project.py             ← scaffold project_<ticker>/ + prefilled launch_spec.json
 │   └── validate_launch_spec.py    ← structure + math + cross-doc + copy-safety linter
 └── .github/
     └── workflows/validate.yml     ← CI: validates every spec on push/PR
