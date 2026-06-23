@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Satyam-10124/hacd-incubator-ai-issuance-skill/schema/launch_spec.schema.json",
+  "title": "HACD Stack Launch Spec",
+  "description": "Machine-readable specification for a HACD Stack Token launch. Math invariants (supply = lots x units, phase sum) are enforced additionally by scripts/validate_launch_spec.py.",
+  "type": "object",
+  "required": ["schema_version", "project", "asset", "stack", "launch", "copy", "review"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": { "type": "string" },
+    "project": {
+      "type": "object",
+      "required": ["name", "ticker", "category", "description", "website", "x", "contact"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "ticker": { "type": "string", "minLength": 1 },
+        "category": {
+          "type": "string",
+          "enum": ["meme", "ai_agent", "art", "rwa", "stable_asset", "game", "community", "utility", "other"]
+        },
+        "description": { "type": "string", "minLength": 1 },
+        "website": { "type": "string" },
+        "x": { "type": "string" },
+        "contact": { "type": "string" }
+      }
+    },
+    "asset": {
+      "type": "object",
+      "required": ["type", "total_supply", "decimals", "unit_name", "utility_summary"],
+      "additionalProperties": false,
+      "properties": {
+        "type": { "type": "string", "enum": ["FT", "NFT", "SFT", "HYBRID"] },
+        "total_supply": { "type": "integer", "minimum": 1 },
+        "decimals": { "type": "integer", "minimum": 0 },
+        "unit_name": { "type": "string" },
+        "utility_summary": { "type": "string" }
+      }
+    },
+    "stack": {
+      "type": "object",
+      "required": [
+        "total_hacd_lots", "hacd_per_lot", "units_per_hacd_lot", "stack_cost_hac_per_hacd",
+        "network_fee_required", "designated_address_required", "designated_address",
+        "first_phase_hacd_lots", "public_phase_hacd_lots", "removal_effect"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "total_hacd_lots": { "type": "integer", "minimum": 1 },
+        "hacd_per_lot": { "type": "integer", "minimum": 1 },
+        "units_per_hacd_lot": { "type": "integer", "minimum": 1 },
+        "stack_cost_hac_per_hacd": { "type": "number", "minimum": 0 },
+        "network_fee_required": { "type": "boolean" },
+        "designated_address_required": { "type": "boolean" },
+        "designated_address": { "type": "string" },
+        "first_phase_hacd_lots": { "type": "integer", "minimum": 0 },
+        "public_phase_hacd_lots": { "type": "integer", "minimum": 0 },
+        "removal_effect": { "type": "string", "enum": ["burn", "disable", "no_effect", "unknown"] }
+      }
+    },
+    "launch": {
+      "type": "object",
+      "required": [
+        "target_date_utc", "launchpad_url", "phase_model",
+        "min_hacd_per_participant", "max_hacd_per_participant", "status"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "target_date_utc": { "type": "string" },
+        "launchpad_url": { "type": "string" },
+        "phase_model": { "type": "string", "enum": ["public", "allowlist", "designated_first", "custom"] },
+        "min_hacd_per_participant": { "type": "integer", "minimum": 1 },
+        "max_hacd_per_participant": { "type": ["integer", "null"], "minimum": 1 },
+        "status": { "type": "string", "enum": ["draft", "review", "approved", "live", "completed"] }
+      }
+    },
+    "copy": {
+      "type": "object",
+      "required": ["headline", "subheadline", "short_description", "risk_disclosure"],
+      "additionalProperties": false,
+      "properties": {
+        "headline": { "type": "string" },
+        "subheadline": { "type": "string" },
+        "short_description": { "type": "string" },
+        "risk_disclosure": { "type": "string" }
+      }
+    },
+    "review": {
+      "type": "object",
+      "required": ["issuer_confirmed", "hacd_labs_reviewed", "legal_review_required", "notes"],
+      "additionalProperties": false,
+      "properties": {
+        "issuer_confirmed": { "type": "boolean" },
+        "hacd_labs_reviewed": { "type": "boolean" },
+        "legal_review_required": { "type": "boolean" },
+        "notes": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  }
+}

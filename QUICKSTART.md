@@ -72,14 +72,36 @@ The AI will output all 8 documents one by one. Copy each into its own file.
 
 ---
 
+## Optional — Research Mode for live data (2 minutes)
+
+The skill ships with a live web-research prompt. If your assistant has web search, paste
+`prompts/web_research.md` and ask for current data instead of guessing:
+
+```
+Research Mode: give me a live HAC market snapshot, convert my formation cost to USD as of today,
+and tell me whether my project name and ticker are already taken on the Launchpad or X.
+```
+
+It returns sourced findings tagged VERIFIED / REPORTED / ASSUMPTION. Use this for anything
+time-sensitive: price, network fee, comparable projects, name availability.
+
 ## Step 4 — Validate the launch_spec.json (1 minute)
 
-Save the `launch_spec.json` the AI generated.
+Save the `launch_spec.json` the AI generated, in the same folder as your 8 documents (the
+validator cross-checks the numbers in the `.md` files against the spec).
 
 If you have Python installed, run:
 
 ```bash
 python3 scripts/validate_launch_spec.py path/to/your/launch_spec.json
+```
+
+The validator now also lints your copy for unsafe language and checks that the supply numbers in
+`stack_design.md` and `launchpad_copy.md` match the spec. For your final submission, use strict
+mode (warnings become failures):
+
+```bash
+python3 scripts/validate_launch_spec.py path/to/your/launch_spec.json --strict
 ```
 
 You should see:
@@ -115,6 +137,12 @@ Fix everything it flags. Then rerun the validator.
 Create a folder named after your project ticker. Put all 8 documents plus the launch_spec.json inside. ZIP it or push it to a GitHub repo.
 
 Submit to HACD Labs as instructed in `CAMPAIGN.md`.
+
+## Step 7 — Actually launch on-chain
+
+Generating documents is half the job. When your package is approved, follow
+`LAUNCH_WALKTHROUGH.md` to set up a wallet, get HAC and HACD, perform the Stack on
+hacd.it/launchpad, and verify formation on explorer.hacash.org.
 
 ---
 
