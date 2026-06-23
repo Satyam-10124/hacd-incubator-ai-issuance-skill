@@ -341,6 +341,13 @@ def main() -> None:
     if warnings:
         print(f"({len(warnings)} warning(s) — fine for a draft, resolve before final submission)")
 
+    # Self-guiding next step: only a clean strict pass is submission-ready.
+    if not warnings and strict:
+        print("\nReady to submit. Package per CAMPAIGN.md, then take it on-chain "
+              "via LAUNCH_WALKTHROUGH.md.")
+    elif not strict:
+        print("Next: fix any warnings, then re-run with --strict for the final check.")
+
 
 if __name__ == "__main__":
     main()

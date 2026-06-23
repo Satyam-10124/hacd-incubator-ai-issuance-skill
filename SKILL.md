@@ -1,4 +1,23 @@
+---
+name: hacd-issuance
+description: Turn a project idea into a complete, validated HACD Stack Asset launch package for the HACD Labs Incubator — 8 launch documents plus a machine-checkable launch_spec.json. Use when a builder wants to issue a token/asset on Hacash, prepare an Incubator submission, design Stack supply math, or write Launchpad copy. No coding required.
+---
+
 # HACD Incubator AI Issuance Skill
+
+## How to use this skill (two modes)
+
+**Mode A — invoked as a skill (Claude Code / claude.ai):** these instructions are
+already loaded. Ask the builder for their idea (or run
+`prompts/google_form_to_intake.md` on their application answers), then produce the
+8-document package below. Use the `scripts/` to scaffold and validate.
+
+**Mode B — pasted into any chat (ChatGPT, etc.):** the builder pastes this file as
+the first message. Confirm your role, then follow the same workflow.
+
+**The fastest path for a builder is `BUILD.md`** — one copy-paste prompt that runs
+the whole pipeline (intake → 8 docs → self-review) in a single turn. Reach for the
+individual `prompts/` only when a builder wants to run one stage in isolation.
 
 ## Identity
 
