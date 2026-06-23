@@ -30,18 +30,15 @@ You do not need to be a developer. The AI skill handles the technical structure.
 
 ## Reward Pool — $500 Total
 
+Awarded to the top 3 projects that launch on hacd.it/launchpad.
+
 | Rank | Reward |
 |------|--------|
-| 1st | $150 |
-| 2nd | $100 |
-| 3rd | $75 |
-| 4th | $30 |
-| 5th | $30 |
-| 6th | $30 |
-| 7th | $30 |
-| 8th | $15 |
-| 9th | $15 |
-| 10th | $15 |
+| 1st | $250 |
+| 2nd | $150 |
+| 3rd | $100 |
+
+(Canonical figures live in `ECOSYSTEM.md`. Reward distribution requires KYC from winning teams.)
 
 ## Judging Criteria
 
@@ -70,15 +67,14 @@ Every submission must contain all of the following:
 
 Submit as a ZIP file or GitHub repo link.
 
-## Timeline
+## Timeline (2026)
 
 | Date | Milestone |
 |------|-----------|
-| Week 1 | Applications open |
-| Week 2 | Applications close, 30 selected builders notified |
-| Week 3 | Builder submission deadline |
-| Week 4 | Top 10 finalists announced, Launchpad listings go live |
-| Week 5 | Reward distribution, Cohort 3 waitlist opens |
+| 20 June | Applications open |
+| 27 June | Applications close; up to 30 builders notified; submission deadline |
+| 29 June | Top 10 finalists announced, Launchpad listings go live, winners announced |
+| After 29 June | Reward distribution (KYC required), Cohort 3 waitlist opens |
 
 ## Rules
 

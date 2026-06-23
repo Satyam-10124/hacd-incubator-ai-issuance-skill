@@ -19,7 +19,7 @@ Generate a table showing what each participant needs at every valid participatio
 For each level calculate:
 - Number of HACD required
 - HAC required for stack cost (HACD count times stack_cost_hac_per_hacd)
-- SFR (or asset units) received (HACD count times units_per_hacd_lot)
+- Asset units received (HACD count times units_per_hacd_lot), using the project's unit_name from the spec
 - Approximate percentage of total supply being formed
 
 Use this column structure:

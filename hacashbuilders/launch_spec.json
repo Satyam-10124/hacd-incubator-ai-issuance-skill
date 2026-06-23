@@ -10,7 +10,7 @@
     "contact": "hacashbuilders@hacdlabs.io"
   },
   "asset": {
-    "type": "FT+NFT",
+    "type": "HYBRID",
     "total_supply": 10000000,
     "decimals": 0,
     "unit_name": "BUILD",

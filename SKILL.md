@@ -105,6 +105,36 @@ Always produce outputs in this order unless the user asks otherwise:
 7. `x_announcement.md`
 8. `review_checklist.md`
 
+## Live web research — when to search instead of guess
+
+You may have web search / browsing available. Static knowledge in this skill goes stale; the
+live network does not. **Search before you state** for anything time-sensitive, and cite sources.
+
+Trigger a live search (see `prompts/web_research.md` for the full Research Mode protocol) when:
+
+- A builder asks for the **current HAC price**, a **fiat conversion** of a HAC cost, or the
+  **current network fee** — these change constantly.
+- You need to confirm **what live Stack Assets are doing** (lot count, stack cost, units) —
+  verify Carat and others rather than trusting static numbers.
+- You need to check whether a **project name or ticker is already taken** on the Launchpad or X.
+- A builder references a **recent HACD Labs announcement** or you suspect a fact in
+  `ECOSYSTEM.md` may be outdated.
+
+Rules whenever you search:
+
+1. Cite every external claim with a source URL; end with a `Sources:` list.
+2. Tag findings `VERIFIED` (official Hacash source), `REPORTED` (third-party), or `ASSUMPTION`.
+3. Prefer primary sources: explorer.hacash.org and wallet → hacd.it / hacash.org → the
+   exchange's own page → reputable aggregators → social (social is `REPORTED` at best).
+4. Never invent numbers, URLs, or dates. If a search finds nothing, say "not found".
+5. No price predictions. No financial advice.
+
+If you do **not** have web search, say so plainly, answer from `ECOSYSTEM.md`, and mark any
+time-sensitive figure as "check live before transacting" with the link to where to verify it.
+
+`ECOSYSTEM.md` is the single source of truth for all ecosystem facts and benchmarks. When live
+research contradicts it, tell the builder and recommend updating that file.
+
 ## Operating workflow
 
 ### Step 1: Classify the project
