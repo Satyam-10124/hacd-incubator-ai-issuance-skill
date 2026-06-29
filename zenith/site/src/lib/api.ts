@@ -1,7 +1,7 @@
 import { toast } from "sonner";
 import type { NameAnalysis, MetaResponse, AccessResult, SearchResponse } from "../types";
 
-const BASE = (import.meta.env.VITE_API_BASE as string) || "http://localhost:8000";
+const BASE = (import.meta.env.VITE_API_BASE as string) || "https://zenith-production-af21.up.railway.app";
 
 async function get<T>(path: string): Promise<T> {
   const res = await fetch(`${BASE}${path}`);
