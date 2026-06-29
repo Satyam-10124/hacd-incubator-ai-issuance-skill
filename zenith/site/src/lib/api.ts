@@ -60,7 +60,7 @@ export async function getLeaderboard(limit = 25, address = ""): Promise<{ tier: 
 function getDemoAnalysis(name: string): NameAnalysis {
   const upper = name.toUpperCase();
   const DEMO: Record<string, NameAnalysis> = {
-    ZENITH: { name: "ZENITH", valid: true, score: 51, tier: "legendary", breakdown: { word: 45, palindrome: 0, repetition: 0, rarity: 6, structure: 0 }, tags: ["dictionary-word"], reasons: ["Real English dictionary word — only 1,219 of 16,777,216 names qualify."], is_dictionary_word: true, is_palindrome: false, repeat_signature: "111111" },
+    ZENITH: { name: "ZENITH", valid: true, score: 51, tier: "rare", breakdown: { word: 45, palindrome: 0, repetition: 0, rarity: 6, structure: 0 }, tags: ["dictionary-word", "rare-letters"], reasons: ["Real English dictionary word — only 1,219 of 16,777,216 names qualify.", "Uses rare letters: Z."], is_dictionary_word: true, is_palindrome: false, repeat_signature: "111111" },
     AAAAAA: { name: "AAAAAA", valid: true, score: 72, tier: "legendary", breakdown: { word: 0, palindrome: 22, repetition: 30, rarity: 0, structure: 14 }, tags: ["solid", "palindrome", "mirror-half"], reasons: ["Solid name — single letter repeated six times (only 16 exist).", "Reads the same forwards and backwards."], is_dictionary_word: false, is_palindrome: true, repeat_signature: "6" },
   };
   return DEMO[upper] ?? { name: upper, valid: true, score: 8, tier: "common", breakdown: { word: 0, palindrome: 0, repetition: 0, rarity: 8, structure: 0 }, tags: [], reasons: ["Valid HACD name with no premium pattern detected."], is_dictionary_word: false, is_palindrome: false, repeat_signature: "" };
